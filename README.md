@@ -8,6 +8,7 @@ Clojure bindings for ØMQ.
 
 Copyright © 2013 UserEvents, Inc.
 
-Free use of this software is granted under the terms of the GNU Lesser General
-Public License (LGPL). For details see the files COPYING and COPYING.LESSER
-included with the ØMQ distribution.
+This is free software; you can redistribute it and/or modify it under the terms
+of the GNU Lesser General Public License as published by the Free Software
+Foundation; either version 3 of the License, or (at your option) any later
+version.
