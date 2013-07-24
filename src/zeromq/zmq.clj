@@ -10,6 +10,12 @@
 
 (def ^:const bytes-type (class (byte-array 0)))
 
+(def ^:const no-block (ZMQ/NOBLOCK))
+
+(def ^:const dont-wait (ZMQ/DONTWAIT))
+
+(def ^:const send-more (ZMQ/SNDMORE))
+
 (def ^:const socket-options
   {:no-block (ZMQ/NOBLOCK)
    :dont-wait (ZMQ/DONTWAIT)
