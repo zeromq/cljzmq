@@ -119,7 +119,7 @@
   ([^ZMQ$Socket socket ^ByteBuffer bb flags]
      (.sendByteBuffer socket bb (int flags))))
 
-(defn recv-byte-buffer
+(defn receive-byte-buffer
   ([^ZMQ$Socket socket ^ByteBuffer bb]
      (recv-byte-buffer socket bb 0))
   ([^ZMQ$Socket socket ^ByteBuffer bb flags]
@@ -143,7 +143,7 @@
 (defn receive-more? [^ZMQ$Socket socket]
   (.hasReceiveMore socket))
 
-(defn recv-all [^ZMQ$Socket socket]
+(defn receive-all [^ZMQ$Socket socket]
   (loop [acc (transient [])]
     (let [new-acc (conj! acc (receive socket))]
       (if (receive-more? socket)
