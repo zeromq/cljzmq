@@ -4,12 +4,9 @@
 
 (defprotocol Sendable
   (send
-    [this socket]
     [this socket flags]))
 
 (extend-protocol Sendable
   String
   (send [this socket flags]
-    (zmq/send socket (.getBytes ^String this) (int flags)))
-  (send [this socket]
-    (send this socket 0)))
+    (zmq/send socket (.getBytes ^String this) (int flags))))
