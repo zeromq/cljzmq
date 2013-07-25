@@ -5,6 +5,8 @@
             :url "http://www.gnu.org/licenses/lgpl.html"}
   :dependencies [[org.clojure/clojure "1.5.1"]
                  [org.zeromq/jzmq "2.1.2"]]
+  :codox {:src-dir-uri "http://github.com/zeromq/cljzmq/blob/master"
+          :src-linenum-anchor-prefix "L"}
   :profiles
   {:1.3 {:dependencies [[org.clojure/clojure "1.3.0"]]}
    :1.4 {:dependencies [[org.clojure/clojure "1.4.0"]]}}
