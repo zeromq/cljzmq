@@ -2,7 +2,13 @@
 
 Clojure bindings for ØMQ.
 
-## Usage
+## Installation
+
+Add the following dependency to your `project.clj` file:
+
+```clojure
+[org.zeromq/cljzmq "0.1.0-SNAPSHOT"]
+```
 
 ## License
 
