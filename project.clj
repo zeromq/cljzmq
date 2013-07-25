@@ -5,6 +5,10 @@
             :url "http://www.gnu.org/licenses/lgpl.html"}
   :dependencies [[org.clojure/clojure "1.5.1"]
                  [org.zeromq/jzmq "2.1.2"]]
+  :profiles
+  {:1.3 {:dependencies [[org.clojure/clojure "1.3.0"]]}
+   :1.4 {:dependencies [[org.clojure/clojure "1.4.0"]]}}
+  :aliases {"all" ["with-profile" "dev:1.3:1.4"]}
   :repositories [["releases" {:url "https://oss.sonatype.org/content/repositories/releases"
                               :username [:gpg :env/NEXUS_USERNAME]
                               :password [:gpg :env/NEXUS_PASSWORD]}]
