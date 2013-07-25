@@ -1,4 +1,4 @@
-(defproject org.zeromq/cljzmq "0.1.0-SNAPSHOT"
+(defproject org.zeromq/cljzmq "0.1.0"
   :description "Clojure binding for ØMQ"
   :url "https://github.com/zeromq/cljzmq"
   :license {:name "LGPLv3+"
@@ -11,7 +11,7 @@
   {:1.3 {:dependencies [[org.clojure/clojure "1.3.0"]]}
    :1.4 {:dependencies [[org.clojure/clojure "1.4.0"]]}}
   :aliases {"all" ["with-profile" "dev:1.3:1.4"]}
-  :repositories [["releases" {:url "https://oss.sonatype.org/content/repositories/releases"
+  :repositories [["releases" {:url "https://oss.sonatype.org/service/local/staging/deploy/maven2/"
                               :username [:gpg :env/NEXUS_USERNAME]
                               :password [:gpg :env/NEXUS_PASSWORD]}]
                  ["snapshots" {:url "https://oss.sonatype.org/content/repositories/snapshots"
