@@ -10,6 +10,10 @@ Add the following dependency to your `project.clj` file:
 [org.zeromq/cljzmq "0.1.0-SNAPSHOT"]
 ```
 
+## Documentation
+
+* [API docs](http://zeromq.github.io/cljzmq)
+
 ## License
 
 Copyright © 2013 UserEvents, Inc.
