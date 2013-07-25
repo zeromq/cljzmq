@@ -1,5 +1,7 @@
 # cljzmq
 
+[![Build Status](https://travis-ci.org/zeromq/cljzmq.png)](https://travis-ci.org/zeromq/cljzmq)
+
 Clojure bindings for ØMQ.
 
 ## Installation
