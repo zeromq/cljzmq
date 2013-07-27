@@ -138,6 +138,12 @@
   (^bytes [^ZMQ$Socket socket ^bytes buffer offset len flags]
      (.recv socket buffer (int offset) (int len) (int flags))))
 
+(defn receive-str
+  ([^ZMQ$Socket socket]
+     (String. (.recv socket 0)))
+  ([^ZMQ$Socket socket flags]
+     (String. (.recv socket (int flags)))))
+
 (defn send
   "Send method shall queue a message part created from the buffer argument on
    the socket.
