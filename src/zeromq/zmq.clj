@@ -139,7 +139,8 @@
      (.recv socket buffer (int offset) (int len) (int flags))))
 
 (defn send
-  "Send method shall queue a message part created from the buffer argument on the socket.
+  "Send method shall queue a message part created from the buffer argument on
+   the socket.
 
    A successful invocation of send does not indicate that the message has been
    transmitted to the network, only that it has been queued on the socket and
