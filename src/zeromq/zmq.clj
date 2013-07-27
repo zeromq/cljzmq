@@ -152,6 +152,12 @@
   ([^ZMQ$Socket socket ^bytes buf offset length flags]
      (.send socket buf (int offset) (int length) (int flags))))
 
+(defn send-str
+  ([^ZMQ$Socket socket ^String message]
+     (.send socket (.getBytes message) 0))
+  ([^ZMQ$Socket socket ^String message flags]
+     (.send socket (.getBytes message) (int flags))))
+
 (defn ^ZMQ$Socket set-send-hwm
   [^ZMQ$Socket socket ^long size]
   (.setSndHWM socket size)
