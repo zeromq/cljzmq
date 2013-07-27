@@ -145,8 +145,8 @@
    A successful invocation of send does not indicate that the message has been
    transmitted to the network, only that it has been queued on the socket and
    ØMQ has assumed responsibility for the message."
-([^ZMQ$Socket socket ^bytes buf]
-     (send socket buf 0))
+  ([^ZMQ$Socket socket ^bytes buf]
+     (.send socket buf 0))
   ([^ZMQ$Socket socket ^bytes buf flags]
      (.send socket buf (int flags)))
   ([^ZMQ$Socket socket ^bytes buf offset length flags]
