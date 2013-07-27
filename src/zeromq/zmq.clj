@@ -139,17 +139,24 @@
      (.recv socket buffer (int offset) (int len) (int flags))))
 
 (defn send
-  "Send method shall queue a message part created from the buffer argument on the socket.
+  "Send method shall queue a message part created from the buffer argument on
+   the socket.
 
    A successful invocation of send does not indicate that the message has been
    transmitted to the network, only that it has been queued on the socket and
    ØMQ has assumed responsibility for the message."
-([^ZMQ$Socket socket ^bytes buf]
-     (send socket buf 0))
+  ([^ZMQ$Socket socket ^bytes buf]
+     (.send socket buf 0))
   ([^ZMQ$Socket socket ^bytes buf flags]
      (.send socket buf (int flags)))
   ([^ZMQ$Socket socket ^bytes buf offset length flags]
      (.send socket buf (int offset) (int length) (int flags))))
+
+(defn send-str
+  ([^ZMQ$Socket socket ^String message]
+     (.send socket (.getBytes message) 0))
+  ([^ZMQ$Socket socket ^String message flags]
+     (.send socket (.getBytes message) (int flags))))
 
 (defn ^ZMQ$Socket set-send-hwm
   [^ZMQ$Socket socket ^long size]

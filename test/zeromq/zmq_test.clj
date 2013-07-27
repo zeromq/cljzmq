@@ -13,4 +13,3 @@
     (s/send "hello" push 0)
     (let [actual (String. (zmq/receive pull))]
       (is (= "hello" actual)))))
-
