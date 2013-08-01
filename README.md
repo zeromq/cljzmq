@@ -28,6 +28,7 @@ Add the following dependency to your `project.clj` file:
 ## Documentation
 
 * [API docs](http://zeromq.github.io/cljzmq)
+* [FAQ](https://github.com/zeromq/cljzmq/wiki/FAQ)
 
 ## License
 
