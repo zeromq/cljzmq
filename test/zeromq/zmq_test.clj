@@ -13,3 +13,11 @@
     (s/send "hello" push 0)
     (let [actual (String. (zmq/receive pull))]
       (is (= "hello" actual)))))
+
+
+(deftest receive-str-timeout-test
+  (with-open [pull (-> (zmq/socket context :pull)
+                       (zmq/bind "tcp://*:12310"))]
+    (zmq/set-receive-timeout pull 100)
+    (let [actual (zmq/receive-str pull)]
+      (is (= nil actual)))))
