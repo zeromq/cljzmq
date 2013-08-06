@@ -140,9 +140,11 @@
 
 (defn receive-str
   ([^ZMQ$Socket socket]
-     (String. (.recv socket 0)))
+     (when-let [^bytes data (.recv socket 0)]
+       (String. data)))
   ([^ZMQ$Socket socket flags]
-     (String. (.recv socket (int flags)))))
+     (when-let [^bytes data (.recv socket (int flags))]
+       (String. data))))
 
 (defn send
   "Send method shall queue a message part created from the buffer argument on
@@ -237,6 +239,15 @@
   [^ZMQ$Socket socket ^bytes identity]
   (.setIdentity socket identity)
   socket)
+
+(defn ^ZMQ$Socket set-receive-timeout
+  "Sets the timeout for receive operation on the socket. If the value is 0,
+   recv will return immediately, with a EAGAIN error if there is no message to
+   receive. If the value is -1, it will block until a message is available. For
+   all other values, it will wait for a message for that amount of time before
+   returning with an EAGAIN error."
+  [^ZMQ$Socket socket timeout]
+  (.setReceiveTimeOut socket timeout))
 
 (defmulti subscribe
   "The subscribe option shall establish a new message filter on a SUB
