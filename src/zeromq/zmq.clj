@@ -10,36 +10,36 @@
 
 (def ^:const bytes-type (class (byte-array 0)))
 
-(def ^:const no-block (ZMQ/NOBLOCK))
+(def ^:const no-block ZMQ/NOBLOCK)
 
-(def ^:const dont-wait (ZMQ/DONTWAIT))
+(def ^:const dont-wait ZMQ/DONTWAIT)
 
-(def ^:const send-more (ZMQ/SNDMORE))
+(def ^:const send-more ZMQ/SNDMORE)
 
 (def ^:const socket-options
-  {:no-block (ZMQ/NOBLOCK)
-   :dont-wait (ZMQ/DONTWAIT)
-   :send-more (ZMQ/SNDMORE)})
+  {:no-block  ZMQ/NOBLOCK
+   :dont-wait ZMQ/DONTWAIT
+   :send-more ZMQ/SNDMORE})
 
 (def ^:const socket-types
-  {:pair (ZMQ/PAIR)
-   :pub (ZMQ/PUB)
-   :sub (ZMQ/SUB)
-   :req (ZMQ/REQ)
-   :rep (ZMQ/REP)
-   :xreq (ZMQ/XREQ)
-   :xrep (ZMQ/XREP)
-   :dealer (ZMQ/DEALER)
-   :router (ZMQ/ROUTER)
-   :xpub (ZMQ/XPUB)
-   :xsub (ZMQ/XSUB)
-   :pull (ZMQ/PULL)
-   :push (ZMQ/PUSH)})
+  {:pair   ZMQ/PAIR
+   :pub    ZMQ/PUB
+   :sub    ZMQ/SUB
+   :req    ZMQ/REQ
+   :rep    ZMQ/REP
+   :xreq   ZMQ/XREQ
+   :xrep   ZMQ/XREP
+   :dealer ZMQ/DEALER
+   :router ZMQ/ROUTER
+   :xpub   ZMQ/XPUB
+   :xsub   ZMQ/XSUB
+   :pull   ZMQ/PULL
+   :push   ZMQ/PUSH})
 
 (def ^:const poller-types
-  {:pollin (ZMQ$Poller/POLLIN)
-   :pollout (ZMQ$Poller/POLLOUT)
-   :pollerr (ZMQ$Poller/POLLERR)})
+  {:pollin  ZMQ$Poller/POLLIN
+   :pollout ZMQ$Poller/POLLOUT
+   :pollerr ZMQ$Poller/POLLERR})
 
 (defn first-free-port
   "Returns first free ephemeral port"
