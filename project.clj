@@ -1,4 +1,4 @@
-(defproject org.zeromq/cljzmq "0.1.2"
+(defproject org.zeromq/cljzmq "0.1.3-SNAPSHOT"
   :description "Clojure binding for ØMQ"
   :url "https://github.com/zeromq/cljzmq"
   :license {:name "LGPLv3+"
