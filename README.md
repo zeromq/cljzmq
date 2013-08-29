@@ -7,7 +7,7 @@ Clojure bindings for ØMQ.
 ## Installation
 
 ```clj
-[org.zeromq/cljzmq "0.1.1"]
+[org.zeromq/cljzmq "0.1.2"]
 ```
 
 ### Snapshots
@@ -22,7 +22,7 @@ To use the latest and greatest snapshot, add the OSS Sonatype repository to your
 Add the following dependency to your `project.clj` file:
 
 ```clj
-[org.zeromq/cljzmq "0.1.2-SNAPSHOT"]
+[org.zeromq/cljzmq "0.1.3-SNAPSHOT"]
 ```
 
 ## Documentation
