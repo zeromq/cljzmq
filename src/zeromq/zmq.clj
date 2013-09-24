@@ -247,7 +247,18 @@
    all other values, it will wait for a message for that amount of time before
    returning with an EAGAIN error."
   [^ZMQ$Socket socket timeout]
-  (.setReceiveTimeOut socket timeout))
+  (.setReceiveTimeOut socket timeout)
+  socket)
+
+(defn ^ZMQ$Socket set-receive-buffer
+  [^ZMQ$Socket socket size]
+  (.setReceiveBufferSize socket size)
+  socket)
+
+(defn ^ZMQ$Socket set-send-buffer
+  [^ZMQ$Socket socket size]
+  (.setSendBufferSize socket size)
+  socket)
 
 (defmulti subscribe
   "The subscribe option shall establish a new message filter on a SUB
