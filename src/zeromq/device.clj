@@ -4,9 +4,22 @@
   (:import
    [org.zeromq ZContext ZMQ$Socket]))
 
+(defn forward
+  "Forward messages from the frontend socket to the backend and optionally to a
+   capture socket"
+  [^ZMQ$Socket frontend ^ZMQ$Socket backend ^ZMQ$Socket capture]
+  (loop [part (zmq/receive frontend)
+         more? (zmq/receive-more? frontend)]
+    (zmq/send backend part (if more? zmq/send-more 0))
+    (when capture
+      (zmq/send capture part (if more? zmq/send-more 0)))
+    (when more?
+      (recur (zmq/receive frontend)
+             (zmq/receive-more? frontend)))))
+
 (defn proxy
   "The proxy function starts the built-in ØMQ proxy in the current application
-    thread.
+   thread.
 
    The proxy connects a frontend socket to a backend socket. Conceptually, data
    flows from frontend to backend. Depending on the socket types, replies may
@@ -25,21 +38,10 @@
      (let [poller (zmq/poller context 2)]
        (zmq/register poller frontend :pollin)
        (zmq/register poller backend :pollin)
-       (while true
-         (zmq/poll poller)
-         (when (zmq/check-poller poller 0 :pollin)
-           (loop [part (zmq/receive frontend)]
-             (let [more? (zmq/receive-more? frontend)]
-               (zmq/send backend part (if more? zmq/send-more 0))
-               (when capture
-                 (zmq/send capture part (if more? zmq/send-more 0)))
-               (when more?
-                 (recur (zmq/receive frontend))))))
-         (when (zmq/check-poller poller 1 :pollin)
-           (loop [part (zmq/receive backend)]
-             (let [more? (zmq/receive-more? backend)]
-               (zmq/send frontend part (if more? zmq/send-more 0))
-               (when capture
-                 (zmq/send capture part (if more? zmq/send-more 0)))
-               (when more?
-                 (recur (zmq/receive backend))))))))))
+       (while (not (.. Thread currentThread isInterrupted))
+         (zmq/poll poller 200)
+         (cond
+          (zmq/check-poller poller 0 :pollin)
+          (forward frontend backend capture)
+          (zmq/check-poller poller 1 :pollin)
+          (forward backend frontend capture))))))
