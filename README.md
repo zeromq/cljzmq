@@ -31,6 +31,10 @@ Add the following dependency to your `project.clj` file:
 * [API docs](http://zeromq.github.io/cljzmq)
 * [FAQ](https://github.com/zeromq/cljzmq/wiki/FAQ)
 
+## Acknowledgements
+
+YourKit is kindly supporting ZeroMQ project with its full-featured [Java Profiler](http://www.yourkit.com/java/profiler/index.jsp).
+
 ## License
 
 Copyright © 2013 UserEvents, Inc.
