@@ -9,6 +9,7 @@ Clojure bindings for ØMQ.
 ```clj
 [org.zeromq/cljzmq "0.1.3"]
 ```
+(see [FAQ](https://github.com/zeromq/cljzmq/wiki/FAQ) for how to make it work with jeromq)
 
 ### Snapshots
 
