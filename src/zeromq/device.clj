@@ -38,8 +38,8 @@
      (let [poller (zmq/poller context 2)]
        (zmq/register poller frontend :pollin)
        (zmq/register poller backend :pollin)
-       (while (not (.. Thread currentThread isInterrupted))
-         (zmq/poll poller 200)
+       (while (and (not (.. Thread currentThread isInterrupted))
+                   (not= -1 (zmq/poll poller 200)))
          (cond
           (zmq/check-poller poller 0 :pollin)
           (forward frontend backend capture)
