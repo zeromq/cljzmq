@@ -4,7 +4,7 @@
   :license {:name "LGPLv3+"
             :url "http://www.gnu.org/licenses/lgpl.html"}
   :dependencies [[org.clojure/clojure "1.5.1"]
-                 [org.zeromq/jzmq "2.1.2"]]
+                 [org.zeromq/jzmq "3.0.1"]]
   :codox {:src-dir-uri "http://github.com/zeromq/cljzmq/blob/master"
           :src-linenum-anchor-prefix "L"}
   :profiles
