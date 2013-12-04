@@ -160,6 +160,18 @@
   ([^ZMQ$Socket socket ^bytes buf offset length flags]
      (.send socket buf (int offset) (int length) (int flags))))
 
+(defn send-byte-buffer
+  ([^ZMQ$Socket socket ^ByteBuffer buf]
+     (.sendByteBuffer socket buf 0))
+  ([^ZMQ$Socket socket ^ByteBuffer buf flags]
+     (.sendByteBuffer socket buf (int flags))))
+
+(defn receive-byte-buffer
+  ([^ZMQ$Socket socket ^ByteBuffer buf]
+     (.recvByteBuffer socket buf 0))
+  ([^ZMQ$Socket socket ^ByteBuffer buf flags]
+     (.recvByteBuffer socket buf (int flags))))
+
 (defn send-str
   ([^ZMQ$Socket socket ^String message]
      (.send socket (.getBytes message) 0))
