@@ -1,7 +1,7 @@
 before_install:
  - sudo add-apt-repository ppa:trevorbernard/zeromq -y
  - sudo apt-get update -y
- - sudo apt-get install libzmq-dev libpgm-dev
+ - sudo apt-get install libzmq3-dev libpgm-dev
  - wget https://s3.amazonaws.com/uploads.hipchat.com/29868/194581/bu6g9pucbev19ch/jzmq_3.0.1-1_amd64.deb
  - sudo dpkg -i jzmq_3.0.1-1_amd64.deb
 language: clojure
