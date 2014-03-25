@@ -31,6 +31,7 @@ Add the following dependency to your `project.clj` file:
 * [Changelog](https://github.com/zeromq/cljzmq/blob/master/CHANGES.md)
 * [API docs](http://zeromq.github.io/cljzmq)
 * [FAQ](https://github.com/zeromq/cljzmq/wiki/FAQ)
+* [Examples](https://github.com/trevorbernard/cljzmq-examples)
 
 ## Acknowledgements
 
