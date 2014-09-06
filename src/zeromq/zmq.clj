@@ -5,6 +5,11 @@
    java.nio.ByteBuffer
    java.net.ServerSocket))
 
+(def ^:const version
+  {:major (ZMQ/getMajorVersion)
+   :minor (ZMQ/getMinorVersion)
+   :patch (ZMQ/getPatchVersion)})
+
 (def ^:const zmq-three?
   (> (ZMQ/getFullVersion) (ZMQ/makeVersion 3 0 0)))
 
