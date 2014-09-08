@@ -1,7 +1,8 @@
 (ns zeromq.zmq
   (:refer-clojure :exclude [send])
   (:import
-   [org.zeromq ZContext ZMQ ZMQ$Context ZMQ$Poller ZMQ$Socket ZMQQueue]
+   [org.zeromq ZContext ZMQ ZMQ$Context ZMQ$Poller ZMQ$Socket ZMQQueue ZMQException ZMQ$Error]
+   [zmq ZError$IOException]
    java.nio.ByteBuffer
    java.net.ServerSocket))
 
@@ -383,3 +384,21 @@
     :pollin (.pollin poller (int index))
     :pollout (.pollout poller (int index))
     :pollerr (.pollerr poller (int index))))
+
+(defmacro with-clean-shutdown [^ZContext context ^Thread thread & body]
+  `(.addShutdownHook (Runtime/getRuntime)
+                     (Thread. (fn []
+                                (println "W: interrupt received, killing service...")
+                                (zmq/destroy ~context)
+                                (try
+                                  ((.interrupt ~thread)
+                                   (.join ~thread))
+                                  (catch InterruptedException e#)))))
+  `(try
+     (do ~@body)
+     (catch ZMQException e# (when-not
+                             (=
+                              (.getErrorCode e#)
+                              (.. ZMQ$Error ETERM getCode))
+                             (throw e#)))
+     (catch ZError$IOException e#)))
