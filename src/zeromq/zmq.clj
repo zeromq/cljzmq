@@ -267,6 +267,16 @@
   (.setReceiveTimeOut socket timeout)
   socket)
 
+(defn ^ZMQ$Socket set-send-timeout
+  "Sets the timeout for send operation on the socket. If the value is 0, send
+   will return immediately, with a false if the message cannot be sent.
+   If the value is -1, it will block until the message is sent. For all other
+   values, it will try to send the message for that amount of time before
+   returning with false and an EAGAIN error."
+  [^ZMQ$Socket socket timeout]
+  (.setSendTimeOut socket timeout)
+  socket)
+
 (defn ^ZMQ$Socket set-receive-buffer
   [^ZMQ$Socket socket size]
   (.setReceiveBufferSize socket size)
