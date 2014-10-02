@@ -22,6 +22,12 @@
     (let [actual (zmq/receive-str pull)]
       (is (= nil actual)))))
 
+(deftest send-str-timeout-test
+  (with-open [push (doto (zmq/socket context :push)
+                     (zmq/set-send-timeout 100)
+                     (zmq/bind "tcp://*:12311"))]
+    (is (= false
+           (zmq/send-str push "hello")))))
 
 (deftest dealer-router-test
   (with-open [dealer (doto (zmq/socket context :dealer)
