@@ -22,12 +22,12 @@
   :pom-addition [:developers
                  [:developer
                   [:name "Trevor Bernard"]
-                  [:email "trevor@userevents.com"]]
+                  [:email "trevor.bernard@gmail.com"]]
                  [:developer
                   [:name "Josh Comer"]
-                  [:email "josh@userevents.com"]]
+                  [:email "jcomer@liveops.com"]]
                  [:developer
                   [:name "Ian Bishop"]
-                  [:email "ian@userevents.com"]]]
+                  [:email "ibishop@liveops.com"]]]
   :min-lein-version "2.0.0")
 
