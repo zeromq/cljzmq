@@ -39,7 +39,7 @@ YourKit is kindly supporting ZeroMQ project with its full-featured [Java Profile
 
 ## License
 
-Copyright © 2013-2014 UserEvents, Inc.
+Copyright © 2013-2015 Contributors as noted in the AUTHORS.md file
 
 This is free software; you can redistribute it and/or modify it under the terms
 of the GNU Lesser General Public License as published by the Free Software

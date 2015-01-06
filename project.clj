@@ -30,4 +30,3 @@
                   [:name "Ian Bishop"]
                   [:email "ibishop@liveops.com"]]]
   :min-lein-version "2.0.0")
-
