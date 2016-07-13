@@ -7,7 +7,7 @@ Clojure bindings for ØMQ.
 ## Installation
 
 ```clj
-[org.zeromq/cljzmq "0.1.4"]
+[org.zeromq/cljzmq "0.1.5"]
 ```
 (see [FAQ](https://github.com/zeromq/cljzmq/wiki/FAQ) for how to make it work with jeromq)
 
@@ -23,7 +23,7 @@ To use the latest and greatest snapshot, add the OSS Sonatype repository to your
 Add the following dependency to your `project.clj` file:
 
 ```clj
-[org.zeromq/cljzmq "0.1.5-SNAPSHOT"]
+[org.zeromq/cljzmq "0.1.6-SNAPSHOT"]
 ```
 
 ## Documentation
@@ -39,7 +39,7 @@ YourKit is kindly supporting ZeroMQ project with its full-featured [Java Profile
 
 ## License
 
-Copyright © 2013-2015 Contributors as noted in the AUTHORS.md file
+Copyright © 2013-2016 Contributors as noted in the AUTHORS.md file
 
 This is free software; you can redistribute it and/or modify it under the terms
 of the GNU Lesser General Public License as published by the Free Software
