@@ -222,13 +222,11 @@
   "Send all data parts to the socket.
   coll is a seq containing byte arrays."
   [^ZMQ$Socket socket coll]
-  (loop [i 0]
-    (let [frame (nth coll i)
-          flags (if (= i (- (count coll) 1))
-                  0
-                  send-more)]
-      (send socket frame flags)
-      (when (< (+ i 1) (count coll)) (recur (+ i 1))))))
+  (loop [[x & xs] coll]
+    (if xs
+      (do (send socket x send-more)
+          (recur xs))
+      (send socket x))))
 
 (defn ^ZMQ$Socket set-linger
   "The linger option shall set the linger period for the specified socket. The
