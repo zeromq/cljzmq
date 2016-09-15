@@ -42,3 +42,18 @@
       (zmq/send-str router "ack")
       (let [actual (zmq/receive-str dealer)]
         (is (= "ack" actual))))))
+
+(deftest receive-all-send-all-test
+  (let [addr "inproc://rxtx-all-test"]
+    (with-open [req (doto (zmq/socket context :req)
+                      (zmq/bind addr))
+                rep (doto (zmq/socket context :rep)
+                      (zmq/connect addr))]
+      (zmq/send-all req [(.getBytes "hello") (.getBytes "world")])
+      (let [msg (zmq/receive-all rep)]
+        (is (= (vec (first msg)) (vec (.getBytes "hello"))))
+        (is (= (vec (second msg)) (vec (.getBytes "world"))))
+        )
+      (zmq/send-all rep [(byte-array[])])
+      (let [msg (zmq/receive-all req)]
+        (is (= (vec (first msg)) []))))))

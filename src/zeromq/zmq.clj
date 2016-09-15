@@ -219,14 +219,15 @@
         (persistent! new-acc)))))
 
 (defn send-all
-  "Send all data parts to the socket.
-  coll is a seq containing byte arrays."
+  "Send all data parts to the socket. coll is a seq containing byte arrays.
+  Does nothing if coll is empty."
   [^ZMQ$Socket socket coll]
   (loop [[x & xs] coll]
-    (if xs
-      (do (send socket x send-more)
-          (recur xs))
-      (send socket x))))
+    (when x
+      (if xs
+        (do (send socket x send-more)
+            (recur xs))
+        (send socket x)))))
 
 (defn ^ZMQ$Socket set-linger
   "The linger option shall set the linger period for the specified socket. The
