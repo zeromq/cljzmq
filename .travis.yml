@@ -3,8 +3,7 @@ before_install:
  - sudo apt-get update -y
  - sudo apt-get install libzmq3-dev libpgm-dev jzmq
 language: clojure
-lein: lein2
-script: lein2 all test
+script: lein all test
 jdk:
   - openjdk7
   - openjdk6
