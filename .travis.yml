@@ -1,9 +1,10 @@
 before_install:
  - sudo add-apt-repository ppa:trevorbernard/zeromq -y
  - sudo apt-get update -y
- - sudo apt-get install libzmq3-dev libpgm-dev jzmq
+ - sudo apt-get install libzmq3-dev libpgm-dev libzmq-java
 language: clojure
 script: lein all test
 jdk:
+  - openjdk8
   - openjdk7
   - openjdk6
